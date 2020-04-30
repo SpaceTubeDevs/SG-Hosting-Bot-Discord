@@ -1,5 +1,7 @@
 package fr.sghosting.utils;
 
+import fr.sghosting.Main;
+
 public class BotSetup {
 
     public void setup() {
@@ -12,6 +14,8 @@ public class BotSetup {
 
     private void SQL() {
 
+        Main.getClassManager().getSqlCredentials().setCredentials();
+        Main.getClassManager().getSqlConnection().createConnection();
     }
 
     private void setEvents() {

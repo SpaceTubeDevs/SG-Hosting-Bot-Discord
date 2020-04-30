@@ -1,10 +1,17 @@
 package fr.sghosting.utils;
 
+import fr.sghosting.sql.SQLConnection;
+import fr.sghosting.sql.SQLCredentials;
+
 public class ClassManager {
 
     private final BotSetup botSetup = new BotSetup();
 
     private final BotToken token = new BotToken();
+
+    private final SQLCredentials sqlCredentials = new SQLCredentials();
+
+    private final SQLConnection sqlConnection = new SQLConnection();
 
 
     public BotSetup getBotSetup() {
@@ -15,4 +22,11 @@ public class ClassManager {
         return token;
     }
 
+    public SQLCredentials getSqlCredentials() {
+        return sqlCredentials;
+    }
+
+    public SQLConnection getSqlConnection() {
+        return sqlConnection;
+    }
 }
