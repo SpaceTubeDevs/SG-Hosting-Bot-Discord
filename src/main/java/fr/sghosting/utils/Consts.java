@@ -21,14 +21,18 @@ public class Consts {
 
     //Channel
 
+    public static final String commandChannel = "701150269651550299";
     public static final String rulesChannel = "697917243882864800";
+    public static final String ticketChannel = "698149601995391057";
 
     //Emoji
 
     public static final String emojiRules = "✅";
+    public static final String emojiTicket = "\uD83C\uDF9F";
 
     //Role
 
+    public static final String adminRole = "697913885096935556";
     public static final String clientRole = "697924469020164157";
 
 }

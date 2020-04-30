@@ -3,6 +3,8 @@ package fr.sghosting.utils;
 import fr.sghosting.events.counter.Counter;
 import fr.sghosting.sql.SQLConnection;
 import fr.sghosting.sql.SQLCredentials;
+import fr.sghosting.sql.ticket.SQLInsert;
+import fr.sghosting.sql.ticket.SQLSelect;
 
 public class ClassManager {
 
@@ -17,6 +19,10 @@ public class ClassManager {
     private final Counter counter = new Counter();
 
     private final Fonction fonction = new Fonction();
+
+    private final SQLInsert sqlInsert = new SQLInsert();
+
+    private final SQLSelect sqlSelect = new SQLSelect();
 
 
     public BotSetup getBotSetup() {
@@ -41,5 +47,13 @@ public class ClassManager {
 
     public Fonction getFonction() {
         return fonction;
+    }
+
+    public SQLInsert getSqlInsert() {
+        return sqlInsert;
+    }
+
+    public SQLSelect getSqlSelect() {
+        return sqlSelect;
     }
 }

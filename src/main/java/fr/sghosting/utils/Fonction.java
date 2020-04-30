@@ -24,4 +24,10 @@ public class Fonction {
         return embedBuilder;
 
     }
+
+    public void stopBot() {
+
+        System.exit(0);
+    }
+
 }
