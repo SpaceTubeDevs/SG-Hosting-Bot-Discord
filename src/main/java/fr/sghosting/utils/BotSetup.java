@@ -1,6 +1,7 @@
 package fr.sghosting.utils;
 
 import fr.sghosting.Main;
+import fr.sghosting.events.counter.memberChangeStatus;
 
 public class BotSetup {
 
@@ -20,6 +21,7 @@ public class BotSetup {
 
     private void setEvents() {
 
+        Main.getJDA().addEventListener(new memberChangeStatus());
     }
 
     private void setCommands() {
