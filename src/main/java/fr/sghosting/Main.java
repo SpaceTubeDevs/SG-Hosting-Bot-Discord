@@ -1,3 +1,6 @@
+package fr.sghosting;
+
+import fr.sghosting.utils.ClassManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -8,11 +11,15 @@ public class Main {
 
     private static JDA jda = null;
 
+    private static final ClassManager classManager = new ClassManager();
+
     public static void main(String[] args) throws LoginException, InterruptedException {
 
-        jda = (new JDABuilder()).setToken("").build();
+        jda = (new JDABuilder()).setToken(classManager.getToken().setToken()).build();
         jda.awaitReady();
         Runtime.getRuntime().addShutdownHook(new Thread(jda::shutdown));
+
+        classManager.getBotSetup().setup();
 
         jda.getPresence().setActivity(Activity.playing("*help"));
 
@@ -22,4 +29,7 @@ public class Main {
         return jda;
     }
 
+    public static ClassManager getClassManager() {
+        return classManager;
+    }
 }
