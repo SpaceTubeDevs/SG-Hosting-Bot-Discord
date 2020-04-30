@@ -2,6 +2,7 @@ package fr.sghosting.utils;
 
 import fr.sghosting.Main;
 import fr.sghosting.events.counter.memberChangeStatus;
+import fr.sghosting.events.joinLeaveUser;
 import fr.sghosting.events.rules.rulesReaction;
 
 public class BotSetup {
@@ -24,6 +25,7 @@ public class BotSetup {
 
         Main.getJDA().addEventListener(new memberChangeStatus());
         Main.getJDA().addEventListener(new rulesReaction());
+        Main.getJDA().addEventListener(new joinLeaveUser());
     }
 
     private void setCommands() {

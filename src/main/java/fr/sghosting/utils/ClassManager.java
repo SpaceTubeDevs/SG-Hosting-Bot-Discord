@@ -16,6 +16,9 @@ public class ClassManager {
 
     private final Counter counter = new Counter();
 
+    private final Fonction fonction = new Fonction();
+
+
     public BotSetup getBotSetup() {
         return botSetup;
     }
@@ -34,5 +37,9 @@ public class ClassManager {
 
     public Counter getCounter() {
         return counter;
+    }
+
+    public Fonction getFonction() {
+        return fonction;
     }
 }

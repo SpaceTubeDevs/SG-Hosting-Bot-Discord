@@ -19,6 +19,10 @@ public class Consts {
 
     public static final String msgRulesChannel = "701206934820487199";
 
+    //Channel
+
+    public static final String rulesChannel = "697917243882864800";
+
     //Emoji
 
     public static final String emojiRules = "✅";

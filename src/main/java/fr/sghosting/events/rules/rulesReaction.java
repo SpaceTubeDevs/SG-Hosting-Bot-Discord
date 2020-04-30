@@ -43,7 +43,7 @@ public class rulesReaction extends ListenerAdapter {
             if (event.getReactionEmote().isEmoji()) {
                 String emoji = event.getReactionEmote().getEmoji();
 
-                // -> si réaction du client + présence sur le serveur alors suppréssion émoji + suppresssion du role "RULES" pour le client
+                // -> si réaction du client + présence sur le serveur alors suppréssion émoji + suppresssion du role "Client" pour le client
                 if (Consts.emojiRules.equals(emoji) && Objects.requireNonNull(Main.getJDA().getGuildById(Consts.guildID)).getMembers().contains(event.getMember())) {
                     Objects.requireNonNull(Main.getJDA().getGuildById(Consts.guildID)).removeRoleFromMember(Objects.requireNonNull(event.getMember()), Objects.requireNonNull(Main.getJDA().getRoleById(Consts.clientRole))).queue();
                 }
