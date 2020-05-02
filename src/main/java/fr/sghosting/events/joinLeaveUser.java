@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.events.guild.member.GuildMemberLeaveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.annotation.Nonnull;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class joinLeaveUser extends ListenerAdapter {
@@ -18,10 +19,14 @@ public class joinLeaveUser extends ListenerAdapter {
 
         User user = event.getUser();
 
-        Main.getClassManager().getCounter().createMemberCountCategory();
+        try {
+            Main.getClassManager().getCounter().createMemberCountCategory();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
         if (!user.hasPrivateChannel()) user.openPrivateChannel().complete();
-        user.openPrivateChannel().flatMap(msg -> msg.sendMessage(Main.getClassManager().getFonction().ClientJoin(event.getUser()).build())).queue();
+        user.openPrivateChannel().flatMap(msg -> msg.sendMessage(Main.getClassManager().getFonction().ClientJoin(event.getUser()).build())).complete();
 
     }
 
@@ -29,7 +34,11 @@ public class joinLeaveUser extends ListenerAdapter {
     public void onGuildMemberLeave(@Nonnull GuildMemberLeaveEvent event) {
         if (event.getUser().isBot()) return;
 
-        Main.getClassManager().getCounter().createMemberCountCategory();
+        try {
+            Main.getClassManager().getCounter().createMemberCountCategory();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
         Objects.requireNonNull(Objects.requireNonNull(Main.getJDA().getGuildById(Consts.guildID)).getTextChannelById(Consts.rulesChannel)).removeReactionById(Consts.msgRulesChannel, Consts.emojiRules, event.getUser()).complete();
 

@@ -8,9 +8,12 @@ import fr.sghosting.events.guildMessageRecieved;
 import fr.sghosting.events.joinLeaveUser;
 import fr.sghosting.events.rules.rulesReaction;
 
+import java.sql.SQLException;
+
 public class BotSetup {
 
-    public void setup() {
+    public void setup() throws SQLException {
+
 
         SQL();
         setEvents();
@@ -37,7 +40,7 @@ public class BotSetup {
                 .registerCommands(new TicketGenerationCommands())));
     }
 
-    private void others() {
+    private void others() throws SQLException {
 
         Main.getClassManager().getCounter().createMemberCountCategory();
     }

@@ -10,11 +10,6 @@ public class Consts {
 
     public static final String counterCategoryID = "701149831762149476";
 
-    //Voice Channel
-
-    public static final String memberCount = "701149886870978750";
-    public static final String onlineMember = "701149908295483393";
-
     //Message Channel
 
     public static final String msgRulesChannel = "701206934820487199";
@@ -25,6 +20,8 @@ public class Consts {
     public static final String rulesChannel = "697917243882864800";
     public static final String ticketChannel = "698149601995391057";
 
+    public static final String logsSgbot = "705896094231691386";
+
     //Emoji
 
     public static final String emojiRules = "✅";
@@ -33,6 +30,9 @@ public class Consts {
     //Role
 
     public static final String adminRole = "697913885096935556";
+    public static final String directorRole = "697914994003673208";
     public static final String clientRole = "697924469020164157";
+    public static final String everyoneRole = "697910250996498492";
 
+    public static long aideMinecraftProxy;
 }

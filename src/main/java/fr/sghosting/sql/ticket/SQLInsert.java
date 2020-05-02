@@ -30,4 +30,55 @@ public class SQLInsert {
             e.printStackTrace();
         }
     }
+
+    //----------------------------------
+
+    public void createCategoryCounter(String categoryDisplay, String categoryID) throws SQLException {
+
+        if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
+
+            Main.getClassManager().getFonction().stopBot();
+
+            System.out.println("A");
+        }
+
+        try {
+
+            PreparedStatement q = Main.getClassManager().getSqlConnection().getConnection().prepareStatement("INSERT INTO category(categoryDisplay, categoryID) VALUES (?,?)");
+            q.setString(1, categoryDisplay);
+            q.setString(2, categoryID);
+
+            q.execute();
+            q.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //----------------------------------
+
+    public void createVoiceChannelCounter(String type, String canalDisplay, String canalID) throws SQLException {
+
+        if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
+
+            Main.getClassManager().getFonction().stopBot();
+
+            System.out.println("A");
+        }
+
+        try {
+
+            PreparedStatement q = Main.getClassManager().getSqlConnection().getConnection().prepareStatement("INSERT INTO canal(type, canalDisplay, canalID) VALUES (?,?, ?)");
+            q.setString(1, type);
+            q.setString(2, canalDisplay);
+            q.setString(3, canalID);
+
+            q.execute();
+            q.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

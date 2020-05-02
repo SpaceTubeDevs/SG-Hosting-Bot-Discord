@@ -22,7 +22,30 @@ public class Fonction {
                 .setTimestamp(Instant.now());
 
         return embedBuilder;
+    }
 
+    public EmbedBuilder erreurCounterDM(User user) {
+
+        EmbedBuilder embedBuilder = new EmbedBuilder()
+                .setTitle("**SG Hosting :**")
+                .setDescription(user.getAsMention() + ", un problème a été détecté sur le système de count : ARRÊT du BOT ! :warning:")
+                .setColor(Color.RED)
+                .setFooter("Bowered By SG Hosting")
+                .setTimestamp(Instant.now());
+
+        return embedBuilder;
+    }
+
+    public EmbedBuilder erreurCounterGuild() {
+
+        EmbedBuilder embedBuilder = new EmbedBuilder()
+                .setTitle("**SG Hosting :**")
+                .setDescription("Un problème a été détecté sur le système de count : ARRÊT du BOT ! :warning:")
+                .setColor(Color.RED)
+                .setFooter("Bowered By SG Hosting")
+                .setTimestamp(Instant.now());
+
+        return embedBuilder;
     }
 
     public void stopBot() {
