@@ -23,7 +23,6 @@ public class Main {
         classManager.getBotSetup().setup();
 
         jda.getPresence().setActivity(Activity.playing("*help"));
-
     }
 
     public static JDA getJDA() {

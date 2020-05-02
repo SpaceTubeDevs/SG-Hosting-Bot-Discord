@@ -1,6 +1,7 @@
-package fr.sghosting.sql.ticket;
+package fr.sghosting.sql;
 
 import fr.sghosting.Main;
+import net.dv8tion.jda.api.JDA;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ public class SQLInsert {
 
         if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
 
-            Main.getClassManager().getFonction().stopBot();
+            Main.getClassManager().getFonction().stopBotSQL();
 
             System.out.println("A");
         }
@@ -37,7 +38,7 @@ public class SQLInsert {
 
         if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
 
-            Main.getClassManager().getFonction().stopBot();
+            Main.getClassManager().getFonction().stopBotSQL();
 
             System.out.println("A");
         }
@@ -62,7 +63,7 @@ public class SQLInsert {
 
         if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
 
-            Main.getClassManager().getFonction().stopBot();
+            Main.getClassManager().getFonction().stopBotSQL();
 
             System.out.println("A");
         }
@@ -81,4 +82,35 @@ public class SQLInsert {
             e.printStackTrace();
         }
     }
+
+    //----------------------------------
+
+    public void createTicket(JDA jda, String ticketID, String userID, String channelID, String msgCloseID, String msgServiceID, String ticketStatusID, String ticketStatus) throws SQLException {
+
+        if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
+
+            Main.getClassManager().getFonction().stopBotSQL();
+
+            System.out.println("A");
+        }
+        try {
+
+            PreparedStatement q = Main.getClassManager().getSqlConnection().getConnection().prepareStatement("INSERT INTO ticket(ticketID, userID, channelID, msgCloseID, msgServiceID, ticketStatusID, ticketStatus) VALUES (?,?,?,?,?,?,?)");
+            q.setString(1, ticketID);
+            q.setString(2, userID);
+            q.setString(3, channelID);
+            q.setString(4, msgCloseID);
+            q.setString(5, msgServiceID);
+            q.setString(6, ticketStatusID);
+            q.setString(7, ticketStatus);
+
+            q.execute();
+            q.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //----------------------------------
 }

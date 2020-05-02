@@ -108,21 +108,7 @@ public class Counter {
 
             if (!Objects.requireNonNull(Main.getJDA().getGuildById(Consts.guildID)).getVoiceChannels().contains(Objects.requireNonNull(Main.getJDA().getGuildById(Consts.guildID)).getVoiceChannelById(a)) || !Objects.requireNonNull(Main.getJDA().getGuildById(Consts.guildID)).getVoiceChannels().contains(Objects.requireNonNull(Main.getJDA().getGuildById(Consts.guildID)).getVoiceChannelById(b))) {
 
-                Objects.requireNonNull(Objects.requireNonNull(Objects.requireNonNull(Objects.requireNonNull(Main.getJDA().getGuildById(Consts.guildID)).getTextChannelById(Consts.logsSgbot))
-
-                        .sendMessage(Objects.requireNonNull(Objects.requireNonNull(Main.getJDA().getGuildById(Consts.guildID)).getRoleById(Consts.directorRole)).getAsMention()).complete()
-                        .getJDA().getGuildById(Consts.guildID)).getTextChannelById(Consts.logsSgbot)).sendMessage(Main.getClassManager().getFonction().erreurCounterGuild().build()).complete();
-
-                for (Member member : Objects.requireNonNull(Main.getJDA().getGuildById(Consts.guildID)).getMembers()) {
-
-                    if (member.getRoles().contains(Objects.requireNonNull(Main.getJDA().getGuildById(Consts.guildID)).getRoleById(Consts.directorRole))) {
-
-                        if (!member.getUser().hasPrivateChannel()) member.getUser().openPrivateChannel().complete();
-                        member.getUser().openPrivateChannel().flatMap(msg -> msg.sendMessage(Main.getClassManager().getFonction().erreurCounterDM(member.getUser()).build())).queue();
-                    }
-                }
-
-                Main.getClassManager().getFonction().stopBot();
+                Main.getClassManager().getFonction().stopBotCounter();
 
             } else {
 

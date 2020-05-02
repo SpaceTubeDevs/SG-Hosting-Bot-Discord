@@ -30,7 +30,7 @@ public class SQLConnection {
                 System.out.println("Connexion SQL Etablie");
             } catch (SQLException e) {
 
-                e.printStackTrace();
+                Main.getClassManager().getFonction().stopBotSQL();
             }
         }
     }
@@ -46,7 +46,7 @@ public class SQLConnection {
                 System.out.println("Connexion SQL Arretée");
             } catch (SQLException e) {
 
-                e.printStackTrace();
+                Main.getClassManager().getFonction().stopBotSQL();
             }
         }
     }

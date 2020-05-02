@@ -8,7 +8,7 @@ public class Consts {
 
     //Category
 
-    public static final String counterCategoryID = "701149831762149476";
+    public static final String catFoldeBase = "701220308534951987";
 
     //Message Channel
 
@@ -26,6 +26,17 @@ public class Consts {
 
     public static final String emojiRules = "✅";
     public static final String emojiTicket = "\uD83C\uDF9F";
+    public static final String ticketPublic = "🔓";
+    public static final String closeTicket = "🔒";
+    public static final String serverGames = "⚡";
+    public static final String domaine = "🌎";
+    public static final String mail = "📧";
+
+
+    //Emote
+
+    public static final String serveurEmote = "min:701403959637835777";
+    public static final String sqlEmote = "min:702636287097569342";
 
     //Role
 
@@ -34,5 +45,4 @@ public class Consts {
     public static final String clientRole = "697924469020164157";
     public static final String everyoneRole = "697910250996498492";
 
-    public static long aideMinecraftProxy;
 }

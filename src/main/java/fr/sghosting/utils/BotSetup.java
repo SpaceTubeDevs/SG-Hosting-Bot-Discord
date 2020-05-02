@@ -7,6 +7,7 @@ import fr.sghosting.events.counter.memberChangeStatus;
 import fr.sghosting.events.guildMessageRecieved;
 import fr.sghosting.events.joinLeaveUser;
 import fr.sghosting.events.rules.rulesReaction;
+import fr.sghosting.events.ticket.TicketGenerator;
 
 import java.sql.SQLException;
 
@@ -32,6 +33,7 @@ public class BotSetup {
         Main.getJDA().addEventListener(new memberChangeStatus());
         Main.getJDA().addEventListener(new rulesReaction());
         Main.getJDA().addEventListener(new joinLeaveUser());
+        Main.getJDA().addEventListener(new TicketGenerator());
     }
 
     private void setCommands() {

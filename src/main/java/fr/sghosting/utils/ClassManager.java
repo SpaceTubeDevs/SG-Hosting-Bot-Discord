@@ -3,8 +3,8 @@ package fr.sghosting.utils;
 import fr.sghosting.events.counter.Counter;
 import fr.sghosting.sql.SQLConnection;
 import fr.sghosting.sql.SQLCredentials;
-import fr.sghosting.sql.ticket.SQLInsert;
-import fr.sghosting.sql.ticket.SQLSelect;
+import fr.sghosting.sql.SQLInsert;
+import fr.sghosting.sql.SQLSelect;
 
 public class ClassManager {
 

@@ -1,4 +1,4 @@
-package fr.sghosting.sql.ticket;
+package fr.sghosting.sql;
 
 import fr.sghosting.Main;
 
@@ -12,9 +12,8 @@ public class SQLSelect {
 
         if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
 
-            Main.getClassManager().getFonction().stopBot();
+            Main.getClassManager().getFonction().stopBotSQL();
 
-            System.out.println("A");
         }
 
         try {
@@ -45,9 +44,8 @@ public class SQLSelect {
 
         if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
 
-            Main.getClassManager().getFonction().stopBot();
+            Main.getClassManager().getFonction().stopBotSQL();
 
-            System.out.println("A");
         }
 
         try {
@@ -74,9 +72,8 @@ public class SQLSelect {
 
         if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
 
-            Main.getClassManager().getFonction().stopBot();
+            Main.getClassManager().getFonction().stopBotSQL();
 
-            System.out.println("A");
         }
 
         try {
@@ -99,20 +96,18 @@ public class SQLSelect {
 
     //----------------------------------
 
-    public String getVoiceCounter(String canalDysplay) throws SQLException {
+    public String getVoiceCounter(String canalDisplay) throws SQLException {
 
         if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
 
-            Main.getClassManager().getFonction().stopBot();
-
-            System.out.println("A");
+            Main.getClassManager().getFonction().stopBotSQL();
         }
 
         try {
 
             PreparedStatement q = Main.getClassManager().getSqlConnection().getConnection().prepareStatement("SELECT canalID FROM canal WHERE canalDisplay = ?");
 
-            q.setString(1, canalDysplay);
+            q.setString(1, canalDisplay);
 
             String c = "";
             ResultSet rs = q.executeQuery();
@@ -128,6 +123,97 @@ public class SQLSelect {
         }
 
         return null;
+    }
+
+    //----------------------------------
+
+    public String getMessageIDByChannelID(String canalDisplay) throws SQLException {
+
+        if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
+
+            Main.getClassManager().getFonction().stopBotSQL();
+
+        }
+
+        try {
+
+            PreparedStatement q = Main.getClassManager().getSqlConnection().getConnection().prepareStatement("SELECT msg FROM message_channel WHERE channelID = ?");
+
+            q.setString(1, canalDisplay);
+
+            String c = "";
+            ResultSet rs = q.executeQuery();
+
+            while (rs.next()) c = rs.getString("msg");
+
+            q.close();
+
+            return c;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    //----------------------------------
+
+    public int getticketByUserID(String userID) throws SQLException {
+
+        int nbrTicket = 0;
+
+        if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
+
+            Main.getClassManager().getFonction().stopBotSQL();
+
+        }
+
+        try {
+            PreparedStatement q = Main.getClassManager().getSqlConnection().getConnection().prepareStatement("SELECT COUNT(*) FROM ticket WHERE userID = ?");
+            q.setString(1, userID);
+            ResultSet rs = q.executeQuery();
+
+            if (rs.next()) {
+                nbrTicket = rs.getInt("COUNT(*)");
+            }
+
+            q.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nbrTicket;
+    }
+
+    //----------------------------------
+
+    public String getTicketIDByChannelID(String channelID) throws SQLException {
+
+        String a = "";
+
+        if (Main.getClassManager().getSqlConnection().getConnection().isClosed()) {
+
+            Main.getClassManager().getFonction().stopBotSQL();
+
+        }
+
+        try {
+
+            PreparedStatement q = Main.getClassManager().getSqlConnection().getConnection().prepareStatement("SELECT ticketID FROM ticket WHERE channelID = ?");
+            q.setString(1, channelID);
+
+            ResultSet rs = q.executeQuery();
+            if (rs.next()) {
+                a = rs.getString("ticketID");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return a;
     }
 
 }
